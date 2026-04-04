@@ -1,3 +1,8 @@
+<?php 
+// THIS MUST BE LINE 1
+include 'db.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -15,6 +20,15 @@
 
 <meta name="google-site-verification" content="JJbQkneRmWMrYVsdPQK0_AdO6NQ5miyeXx-rYEr3BrE" />
 
+<?php
+// Get the latest news title to show in Google Search
+$seo_result = $conn->query("SELECT title FROM news_articles ORDER BY id DESC LIMIT 1");
+$seo_row = $seo_result->fetch_assoc();
+$latest_headline = $seo_row['title'] ?? "Premium NA Plots in Igatpuri";
+?>
+
+<title>Earth One | <?php echo $latest_headline; ?></title>
+<meta name="description" content="Stay updated with Earth One. Latest News: <?php echo $latest_headline; ?>. Explore luxury gated communities in Igatpuri.">
 
 
 <!-- Add these after your OG tags -->
@@ -445,7 +459,7 @@
             <div class="relative reveal flex flex-col items-center" style="transition-delay: 0.3s;">
                 <!-- Main Logo -->
                 <div class="relative z-10 flex items-center justify-center p-0"> <!-- Removed padding completely -->
-                    <img src="Gallery/strategicpa.jpeg" alt="Earth One" 
+                    <img src="../Gallery/strategicpa.jpeg" alt="Earth One" 
                          class="w-full max-w-[450px] h-auto object-contain"> 
                 </div>
 
@@ -523,7 +537,7 @@
           Adjusted height to h-[220px] (mobile) and h-[340px] (desktop) 
           to match the wider proportions of a horizontal Legal sheet.
         -->
-        <img src="Gallery/overview1.jpg" alt="Earth One Landscape" 
+        <img src="../Gallery/overview1.jpg" alt="Earth One Landscape" 
              class="w-full h-[220px] md:h-[340px] object-cover hover:scale-105 transition-transform duration-700">
         
         <!-- Gradient Overlay -->
@@ -744,253 +758,63 @@
 
 <!-- Home Tab News -->
     <section id="newsroom" class="py-24 md:py-40 bg-[#1a3c34] relative overflow-hidden">
- 
-  <!-- Subtle background texture dot pattern -->
-  <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
-       style="background-image: radial-gradient(circle, #c5a059 1px, transparent 1px); background-size: 32px 32px;"></div>
- 
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(circle, #c5a059 1px, transparent 1px); background-size: 32px 32px;"></div>
+  
   <div class="max-w-7xl mx-auto px-6 relative z-10">
- 
-    <!-- Section Header -->
     <div class="text-center mb-16 reveal">
       <span class="text-[#c5a059] font-bold uppercase tracking-[6px] text-[10px] mb-4 block">In The Press</span>
-      <h2 class="text-4xl md:text-6xl font-serif text-white leading-tight">
-        Latest Updates
-      </h2>
+      <h2 class="text-4xl md:text-6xl font-serif text-white leading-tight">Latest Updates</h2>
       <div class="w-20 h-1 bg-[#c5a059] mx-auto mt-6"></div>
-      <p class="text-white/50 text-sm mt-6 max-w-xl mx-auto font-light leading-relaxed">
-        Catch the latest coverage, features, and real-estate insights around Igatpuri, 
-        NA plots, and premium gated communities across Maharashtra.
-      </p>
     </div>
- 
-    <!-- News Cards Grid -->
+
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-8">
- 
-      <!-- ── Card 1 · ANI News ── -->
-      <a href="https://www.aninews.in/news/business/earth-one-at-igatpuri-hills-announces-dr-mickey-mehta-as-holistic-living-ambassador20260209150611/" 
-         target="_blank" rel="noopener noreferrer"
-         class="news-card group flex flex-col bg-white/5 border border-white/10 hover:border-[#c5a059]/60 rounded-sm overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 reveal"
-         style="transition-delay: 0.1s;">
-        <div class="relative overflow-hidden aspect-video bg-[#0f241f]">
-          <img src="https://mma.prnewswire.com/media/2889725/Earth_One_Ambassador.jpg"
-               alt="Earth One appoints Dr. Mickey Mehta as Holistic Living Ambassador"
-               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-               onerror="this.src='Gallery/MainGate.jpg'">
-          <div class="absolute top-3 left-3">
-            <span class="bg-[#c5a059] text-[#0f241f] text-[9px] font-black uppercase tracking-[2px] px-3 py-1 rounded-sm">
-              ANI News
-            </span>
-          </div>
-        </div>
-        <div class="flex flex-col flex-grow p-3 sm:p-6 gap-2 sm:gap-4">
-          <p class="text-white/40 text-[9px] uppercase tracking-[3px] font-bold">Wellness · Earth One</p>
-          <h3 class="text-white font-serif text-xs sm:text-lg leading-snug group-hover:text-[#c5a059] transition-colors">
-            Earth One Announces Dr. Mickey Mehta as Holistic Living Ambassador
-          </h3>
-          <p class="text-white/50 text-sm font-light leading-relaxed flex-grow hidden sm:block">
-            Earth One at Igatpuri Hills partners with India's leading holistic health guru, aligning 
-            the project's vision of conscious community living with a philosophy of wellness-driven design.
-          </p>
-          <div class="flex items-center gap-2 text-[#c5a059] text-[10px] font-bold uppercase tracking-[2px] mt-2 group-hover:gap-4 transition-all">
-            Read Article <i class="fa-solid fa-arrow-right text-[8px]"></i>
-          </div>
-        </div>
-      </a>
- 
-      <!-- ── Card 2 · PropertyAaj ── -->
-      <a href="https://propertyaaj.com/blogs/buying-property/buying-na-plots-in-igatpuri-legal-checklist-569" 
-         target="_blank" rel="noopener noreferrer"
-         class="news-card group flex flex-col bg-white/5 border border-white/10 hover:border-[#c5a059]/60 rounded-sm overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 reveal"
-         style="transition-delay: 0.2s;">
-        <div class="relative overflow-hidden aspect-video bg-[#0f241f]">
-          <img src="https://img.propertyaaj.com/637x358/assets/webpage_image/569/569_1754347624.webp"
-               alt="Buying NA Plots in Igatpuri Legal Checklist"
-               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-               onerror="this.src='Gallery/3-Master-Plan-Aerial-2.jpg'">
-          <div class="absolute top-3 left-3">
-            <span class="bg-white text-[#1a3c34] text-[9px] font-black uppercase tracking-[2px] px-3 py-1 rounded-sm">
-              PropertyAaj
-            </span>
-          </div>
-        </div>
-        <div class="flex flex-col flex-grow p-3 sm:p-6 gap-2 sm:gap-4">
-          <p class="text-white/40 text-[9px] uppercase tracking-[3px] font-bold">Legal · NA Plots</p>
-          <h3 class="text-white font-serif text-xs sm:text-lg leading-snug group-hover:text-[#c5a059] transition-colors">
-            Buying NA Plots in Igatpuri: The Complete Legal Checklist
-          </h3>
-          <p class="text-white/50 text-sm font-light leading-relaxed flex-grow hidden sm:block">
-            From verifying NA orders to title history and layout approvals — every legal step a buyer 
-            must check before investing in Non-Agricultural plots in Igatpuri, Maharashtra.
-          </p>
-          <div class="flex items-center gap-2 text-[#c5a059] text-[10px] font-bold uppercase tracking-[2px] mt-2 group-hover:gap-4 transition-all">
-            Read Article <i class="fa-solid fa-arrow-right text-[8px]"></i>
-          </div>
-        </div>
-      </a>
- 
-      <!-- ── Card 3 · Ghar.tv ── -->
-      <a href="https://www.ghar.tv/blog/from-4400-to-15000-per-sq-ft-unpacking-mumbais-top-weekend-home-investment-corridors/artid5637" 
-         target="_blank" rel="noopener noreferrer"
-         class="news-card group flex flex-col bg-white/5 border border-white/10 hover:border-[#c5a059]/60 rounded-sm overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 reveal"
-         style="transition-delay: 0.3s;">
-        <div class="relative overflow-hidden aspect-video bg-[#0f241f]">
-          <!-- Ghar.tv blocks direct image hotlink; using a tasteful generated OG-style card -->
- 
-          <img src="https://www.ghar.tv/imgbo/post-requirement.svg"
-               alt="Buying NA Plots in Igatpuri Legal Checklist"
-               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-               onerror="this.src='Gallery/3-Master-Plan-Aerial-2.jpg'">
 
-          <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#1a3c34] to-[#0f241f] p-6 text-center">
-            <i class="fa-solid fa-city text-[#c5a059]/30 text-5xl mb-3"></i>
-            <span class="text-white/60 text-xs uppercase tracking-widest">Weekend Home Investment Corridors</span>
-          </div>
-          <div class="absolute top-3 left-3">
-            <span class="bg-[#c5a059] text-[#0f241f] text-[9px] font-black uppercase tracking-[2px] px-3 py-1 rounded-sm">
-              Ghar.tv
-            </span>
-          </div>
-        </div>
-        <div class="flex flex-col flex-grow p-3 sm:p-6 gap-2 sm:gap-4">
-          <p class="text-white/40 text-[9px] uppercase tracking-[3px] font-bold">Investment · Weekend Homes</p>
-          <h3 class="text-white font-serif text-xs sm:text-lg leading-snug group-hover:text-[#c5a059] transition-colors">
-            From ₹4,400 to ₹15,000/sq ft: Mumbai's Top Weekend Home Investment Corridors
-          </h3>
-          <p class="text-white/50 text-sm font-light leading-relaxed flex-grow hidden sm:block">
-            Igatpuri features among Mumbai's fastest-appreciating weekend-home corridors, with 
-            land values tracking a sharp upward trajectory driven by expressway connectivity and lifestyle demand.
-          </p>
-          <div class="flex items-center gap-2 text-[#c5a059] text-[10px] font-bold uppercase tracking-[2px] mt-2 group-hover:gap-4 transition-all">
-            Read Article <i class="fa-solid fa-arrow-right text-[8px]"></i>
-          </div>
-        </div>
-      </a>
- 
-      <!-- ── Card 4 · Economic Times / MIDC ── -->
-      <a href="https://manufacturing.economictimes.indiatimes.com/news/industry/midc-announces-plans-for-new-industrial-estate-in-igatpuri/118782390" 
-         target="_blank" rel="noopener noreferrer"
-         class="news-card group flex flex-col bg-white/5 border border-white/10 hover:border-[#c5a059]/60 rounded-sm overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 reveal"
-         style="transition-delay: 0.4s;">
-        <div class="relative overflow-hidden aspect-video bg-[#0f241f]">
-          <!-- ET blocks direct image access; using branded fallback -->
-           <img src="https://etimg.etb2bimg.com/photo/118782422.cms"
-               alt="Buying NA Plots in Igatpuri Legal Checklist"
-               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-               onerror="this.src='Gallery/3-Master-Plan-Aerial-2.jpg'">
+      <?php 
+      include 'db.php'; 
+      // This fetches all news from your database, newest first
+      $result = $conn->query("SELECT * FROM news_articles ORDER BY id DESC");
+      
+      while($row = $result->fetch_assoc()): 
+      ?>
 
-          <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#8b5e34]/30 to-[#0f241f] p-6 text-center">
-            <i class="fa-solid fa-industry text-[#c5a059]/30 text-5xl mb-3"></i>
-            <span class="text-white/60 text-xs uppercase tracking-widest">MIDC · Igatpuri Industrial Estate</span>
-          </div>
+      <a href="<?php echo $row['article_url']; ?>" 
+         target="_blank" rel="noopener noreferrer"
+         class="news-card group flex flex-col bg-white/5 border border-white/10 hover:border-[#c5a059]/60 rounded-sm overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2">
+        
+        <div class="relative overflow-hidden aspect-video bg-[#0f241f]">
+          <img src="<?php echo $row['image_url']; ?>" 
+               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           
-
-          <div class="absolute top-3 left-3">
-            <span class="bg-white text-[#1a3c34] text-[9px] font-black uppercase tracking-[2px] px-3 py-1 rounded-sm">
-              Economic Times
-            </span>
-          </div>
-        </div>
-        <div class="flex flex-col flex-grow p-3 sm:p-6 gap-2 sm:gap-4">
-          <p class="text-white/40 text-[9px] uppercase tracking-[3px] font-bold">Infrastructure · MIDC</p>
-          <h3 class="text-white font-serif text-xs sm:text-lg leading-snug group-hover:text-[#c5a059] transition-colors">
-            MIDC Announces Plans for New 675-Acre Industrial Estate in Igatpuri
-          </h3>
-          <p class="text-white/50 text-sm font-light leading-relaxed flex-grow hidden sm:block">
-            Maharashtra's MIDC has identified 675 acres in Advan, Igatpuri taluka, for a new industrial 
-            estate — a move that will significantly boost land values and employment in the region.
-          </p>
-          <div class="flex items-center gap-2 text-[#c5a059] text-[10px] font-bold uppercase tracking-[2px] mt-2 group-hover:gap-4 transition-all">
-            Read Article <i class="fa-solid fa-arrow-right text-[8px]"></i>
-          </div>
-        </div>
-      </a>
- 
-      <!-- ── Card 5 · Mid-Day ── -->
-      <a href="https://www.mid-day.com/mumbai/mumbai-news/article/two-gamechanger-projects-will-connect-to-nashik-pune-soon-23489893" 
-         target="_blank" rel="noopener noreferrer"
-         class="news-card group flex flex-col bg-white/5 border border-white/10 hover:border-[#c5a059]/60 rounded-sm overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 reveal"
-         style="transition-delay: 0.5s;">
-        <div class="relative overflow-hidden aspect-video bg-[#0f241f]">
-          <!-- Mid-Day blocks direct hotlinks; using branded card -->
-           <img src="https://images.mid-day.com/images/images/2025/feb/Samruddhi_d.jpg"
-               alt="Buying NA Plots in Igatpuri Legal Checklist"
-               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-               onerror="this.src='Gallery/3-Master-Plan-Aerial-2.jpg'">
-
-          <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#1a3c34] to-[#0f241f] p-6 text-center">
-            <i class="fa-solid fa-road text-[#c5a059]/30 text-5xl mb-3"></i>
-            <span class="text-white/60 text-xs uppercase tracking-widest">Samruddhi Expressway · Igatpuri Link</span>
-          </div>
           <div class="absolute top-3 left-3">
             <span class="bg-[#c5a059] text-[#0f241f] text-[9px] font-black uppercase tracking-[2px] px-3 py-1 rounded-sm">
-              Mid-Day
+              <?php echo $row['source_name']; ?>
             </span>
           </div>
         </div>
-        <div class="flex flex-col flex-grow p-3 sm:p-6 gap-2 sm:gap-4">
-          <p class="text-white/40 text-[9px] uppercase tracking-[3px] font-bold">Connectivity · Maharashtra</p>
-          <h3 class="text-white font-serif text-xs sm:text-lg leading-snug group-hover:text-[#c5a059] transition-colors">
-            Two Gamechanger Projects Will Connect Mumbai to Nashik & Pune Soon
-          </h3>
-          <p class="text-white/50 text-sm font-light leading-relaxed flex-grow hidden sm:block">
-            The 76-km Samruddhi Mahamarg section linking Igatpuri to Bhiwandi is set for completion, 
-            dramatically cutting travel time and unlocking real-estate potential along the corridor.
-          </p>
-          <div class="flex items-center gap-2 text-[#c5a059] text-[10px] font-bold uppercase tracking-[2px] mt-2 group-hover:gap-4 transition-all">
-            Read Article <i class="fa-solid fa-arrow-right text-[8px]"></i>
-          </div>
-        </div>
-      </a>
- 
-      <!-- ── Card 6 · GenuinePlots ── -->
-      <a href="https://genuineplots.com/is-it-the-right-time-to-invest-in-plots-in-nashik-ahead-of-kumbh-mela-2026" 
-         target="_blank" rel="noopener noreferrer"
-         class="news-card group flex flex-col bg-white/5 border border-white/10 hover:border-[#c5a059]/60 rounded-sm overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 reveal"
-         style="transition-delay: 0.6s;">
-        <div class="relative overflow-hidden aspect-video bg-[#0f241f]">
-          <!-- GenuinePlots uses CDN paths that don't load externally; using fallback -->
-           <img src="https://genuineplots.com/images/blog/GENUINE%20PLOTS%20(Blog%20Banner)%20-%202026-02-04T141222.110.png"
-               alt="Buying NA Plots in Igatpuri Legal Checklist"
-               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-               onerror="this.src='Gallery/3-Master-Plan-Aerial-2.jpg'">
 
-          <div class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#8b5e34]/20 to-[#0f241f] p-6 text-center">
-            <i class="fa-solid fa-om text-[#c5a059]/30 text-5xl mb-3"></i>
-            <span class="text-white/60 text-xs uppercase tracking-widest">Nashik · Kumbh Mela 2027 · Investment</span>
-          </div>
-          <div class="absolute top-3 left-3">
-            <span class="bg-white text-[#1a3c34] text-[9px] font-black uppercase tracking-[2px] px-3 py-1 rounded-sm">
-              GenuinePlots
-            </span>
-          </div>
-        </div>
         <div class="flex flex-col flex-grow p-3 sm:p-6 gap-2 sm:gap-4">
-          <p class="text-white/40 text-[9px] uppercase tracking-[3px] font-bold">Market · Nashik</p>
+          <p class="text-white/40 text-[9px] uppercase tracking-[3px] font-bold">Press Release · Earth One</p>
           <h3 class="text-white font-serif text-xs sm:text-lg leading-snug group-hover:text-[#c5a059] transition-colors">
-            Is It the Right Time to Invest in Plots in Nashik Ahead of Kumbh Mela 2027?
+            <?php echo $row['title']; ?>
           </h3>
           <p class="text-white/50 text-sm font-light leading-relaxed flex-grow hidden sm:block">
-            With Kumbh Mela drawing millions to Nashik, land prices in the Nashik–Igatpuri corridor 
-            are surging. Experts say the window to invest before prices peak is closing fast.
+            <?php echo $row['description']; ?>
           </p>
           <div class="flex items-center gap-2 text-[#c5a059] text-[10px] font-bold uppercase tracking-[2px] mt-2 group-hover:gap-4 transition-all">
             Read Article <i class="fa-solid fa-arrow-right text-[8px]"></i>
           </div>
         </div>
       </a>
- 
-    </div><!-- /grid -->
- 
-    <!-- CTA -->
-    <div class="mt-16 text-center reveal">
-      <a href="earthone/newsroom.html"
-         class="inline-flex items-center gap-4 px-12 py-5 border border-[#c5a059] text-[#c5a059] font-bold uppercase tracking-[4px] text-xs hover:bg-[#c5a059] hover:text-[#0f241f] transition-all rounded-sm shadow-xl group">
+
+      <?php endwhile; ?>
+
+    </div><div class="mt-16 text-center reveal">
+      <a href="earthone/newsroom.html" class="inline-flex items-center gap-4 px-12 py-5 border border-[#c5a059] text-[#c5a059] font-bold uppercase tracking-[4px] text-xs hover:bg-[#c5a059] hover:text-[#0f241f] transition-all rounded-sm shadow-xl group">
         View All News
         <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
       </a>
     </div>
- 
+
   </div>
 </section>
  
